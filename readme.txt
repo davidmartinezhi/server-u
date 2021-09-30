@@ -1,0 +1,33 @@
+Archivos y Carpetas
+===================
+  * Controllers: - contiene funciones con las que controlaremos el backend
+
+  * Middleware: - Comprueba ejecuciones para permisos, urls y mas
+
+  * Models: - Va a tener modelos (Objetos)
+
+  * Routers: - Exporta rutas para que el dom pueda hacer peticiones al var.
+
+  * Services: - Contiene los tokens
+
+  * Index.js: - Primer ejecutable
+
+  * App.js: - Conexión con la base de datos
+
+  * Config.js: - Guardar versiones y configuraciones
+
+Dependencias
+============
+  * bcrypt-nodejs - Encripta contraseñas
+
+  * body-parser - Pasar información en el body en las peticiones http, al usar express
+
+  * connect-multiparty - Middleware para subir imagenes a nuestro servidor
+
+  * express - Crear sistema de rutas
+
+  * jwt-simple - Codificar y decodificar tokens
+
+  * Moment - Para trabajar con fechar y horas
+
+  * Mongoose - Generar esquemas y modelos
