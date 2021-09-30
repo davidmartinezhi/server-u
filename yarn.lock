@@ -106,6 +106,7 @@ __metadata:
     connect-multiparty: ^2.2.0
     express: ^4.17.1
     jwt-simple: ^0.5.6
+    moment: ^2.29.1
   languageName: unknown
   linkType: soft
 
@@ -346,6 +347,13 @@ __metadata:
   bin:
     mime: cli.js
   checksum: d540c24dd3e3a9e25e813714e55ff2f7841a3a1a47aed9786c508bd0251653d5e9abbfb1163c0c6e1be99f872d7fa1538c068bd6e306e9cb12dd9affa841a61e
+  languageName: node
+  linkType: hard
+
+"moment@npm:^2.29.1":
+  version: 2.29.1
+  resolution: "moment@npm:2.29.1"
+  checksum: 86729013febf7160de5b93da69273dd304d674b0224f9544b3abd09a87671ddd2cdd57598261ce57588910d63747ffd5590965e83c790d8bf327083c0e0a06e0
   languageName: node
   linkType: hard
 

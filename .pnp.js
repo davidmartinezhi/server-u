@@ -41,7 +41,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.19.0"],
             ["connect-multiparty", "npm:2.2.0"],
             ["express", "npm:4.17.1"],
-            ["jwt-simple", "npm:0.5.6"]
+            ["jwt-simple", "npm:0.5.6"],
+            ["moment", "npm:2.29.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -163,7 +164,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.19.0"],
             ["connect-multiparty", "npm:2.2.0"],
             ["express", "npm:4.17.1"],
-            ["jwt-simple", "npm:0.5.6"]
+            ["jwt-simple", "npm:0.5.6"],
+            ["moment", "npm:2.29.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -449,6 +451,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["mime-types", "npm:2.1.32"],
             ["mime-db", "npm:1.49.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["moment", [
+        ["npm:2.29.1", {
+          "packageLocation": "./.yarn/cache/moment-npm-2.29.1-787d9fdafd-86729013fe.zip/node_modules/moment/",
+          "packageDependencies": [
+            ["moment", "npm:2.29.1"]
           ],
           "linkType": "HARD",
         }]
