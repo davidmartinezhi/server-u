@@ -40,7 +40,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bcrypt-nodejs", "npm:0.0.3"],
             ["body-parser", "npm:1.19.0"],
             ["connect-multiparty", "npm:2.2.0"],
-            ["express", "npm:4.17.1"]
+            ["express", "npm:4.17.1"],
+            ["jwt-simple", "npm:0.5.6"]
           ],
           "linkType": "SOFT",
         }]
@@ -161,7 +162,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bcrypt-nodejs", "npm:0.0.3"],
             ["body-parser", "npm:1.19.0"],
             ["connect-multiparty", "npm:2.2.0"],
-            ["express", "npm:4.17.1"]
+            ["express", "npm:4.17.1"],
+            ["jwt-simple", "npm:0.5.6"]
           ],
           "linkType": "SOFT",
         }]
@@ -383,6 +385,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/ipaddr.js-npm-1.9.1-19ae7878b4-de15bc7e63.zip/node_modules/ipaddr.js/",
           "packageDependencies": [
             ["ipaddr.js", "npm:1.9.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["jwt-simple", [
+        ["npm:0.5.6", {
+          "packageLocation": "./.yarn/cache/jwt-simple-npm-0.5.6-85a0092e17-d7d4d1d417.zip/node_modules/jwt-simple/",
+          "packageDependencies": [
+            ["jwt-simple", "npm:0.5.6"]
           ],
           "linkType": "HARD",
         }]

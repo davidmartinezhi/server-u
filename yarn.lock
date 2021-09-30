@@ -105,6 +105,7 @@ __metadata:
     body-parser: ^1.19.0
     connect-multiparty: ^2.2.0
     express: ^4.17.1
+    jwt-simple: ^0.5.6
   languageName: unknown
   linkType: soft
 
@@ -292,6 +293,13 @@ __metadata:
   version: 1.9.1
   resolution: "ipaddr.js@npm:1.9.1"
   checksum: de15bc7e63973d960abc43c9fbbf19589c726774f59d157d1b29382a1e86ae87c68cbd8b5c78a1712a87fc4fcd91e10762c7671950c66a1a19040ff4fd2f9c9b
+  languageName: node
+  linkType: hard
+
+"jwt-simple@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "jwt-simple@npm:0.5.6"
+  checksum: d7d4d1d4174be402cc08aa1ec3a1196101818664a585676e5694dcbc8c31f6e52ced64ee926c83de7fd7574451ce94acfb00220153e3d205ee5d156594f87585
   languageName: node
   linkType: hard
 
