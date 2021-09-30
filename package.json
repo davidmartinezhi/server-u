@@ -1,3 +1,8 @@
 {
-  "name": "server"
+  "name": "davidgerardomartinezhidrogo-backend",
+  "version": "0.0.1",
+  "description": "Backend para la web www.gerardomartinez.com",
+  "main": "index.js",
+  "author": "David Gerardo Martinez Hidrogo",
+  "license": "MIT"
 }
