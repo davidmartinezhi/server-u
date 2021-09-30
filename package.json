@@ -4,5 +4,8 @@
   "description": "Backend para la web www.gerardomartinez.com",
   "main": "index.js",
   "author": "David Gerardo Martinez Hidrogo",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3"
+  }
 }
