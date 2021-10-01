@@ -31,3 +31,5 @@ Dependencias
   * Moment - Para trabajar con fechar y horas
 
   * Mongoose - Generar esquemas y modelos
+
+  * Nodemone - Reinicia el server de manera automatica para actualizar la pagina
