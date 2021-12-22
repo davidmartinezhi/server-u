@@ -33,3 +33,7 @@ Dependencias
   * Mongoose - Generar esquemas y modelos
 
   * Nodemone - Reinicia el server de manera automatica para actualizar la pagina
+
+
+  ==============
+  Comandos
