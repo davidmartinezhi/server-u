@@ -35,5 +35,6 @@ Dependencias
   * Nodemone - Reinicia el server de manera automatica para actualizar la pagina
 
 
-  ==============
   Comandos
+  ========
+  * Yarn start - para iniciar el servidor con nodemon index.js
