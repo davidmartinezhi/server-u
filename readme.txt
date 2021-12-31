@@ -43,3 +43,4 @@ Dependencias
   Recordatorio:
     -Checar porque nodemon esta fallando
     -Intentar reinstalar todas las Dependencias
+    -Intentar ver si lo que esta fallando no es porque react sigue abierto aunque yo no me de cuenta
