@@ -42,3 +42,4 @@ Dependencias
 
   Recordatorio:
     -Checar porque nodemon esta fallando
+    -Intentar reinstalar todas las Dependencias
