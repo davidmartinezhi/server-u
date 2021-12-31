@@ -38,3 +38,7 @@ Dependencias
   Comandos
   ========
   * Yarn start - para iniciar el servidor con nodemon index.js
+
+
+  Recordatorio:
+  
