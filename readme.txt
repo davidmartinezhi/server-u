@@ -41,4 +41,4 @@ Dependencias
 
 
   Recordatorio:
-  
+    -Checar porque nodemon esta fallando
