@@ -8,8 +8,8 @@ const { API_VERSION } = require("./config");
 const userRoutes = require("./routers/user");
 
 //Configuracion de bodyParser en express
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Configure header HTTP
 
