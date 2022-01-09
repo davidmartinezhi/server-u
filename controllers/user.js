@@ -12,7 +12,7 @@ function signUp( req, res){
 
     user.name = name;
     user.lastname = lastname;
-    user.email = email;
+    user.email = email.toLowerCase();   //Todos los correos serán tomados con lowercase
     user.role = "admin";
     user.active = false;
 
