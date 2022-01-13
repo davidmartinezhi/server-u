@@ -7,7 +7,7 @@ const { API_VERSION } = require("./config");
 //Load routings
 const userRoutes = require("./routers/user");
 
-//Configuracion de bodyParser en express
+//Configuracion de bodyParser en express, investigar que es este codigo. Para que funciona
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
