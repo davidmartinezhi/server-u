@@ -5,7 +5,7 @@ const User = require("../models/user"); //Modelo del usuario
 //Endpoint que crea/guarda nuevo usuario, siempre y cuando, no esten registrados
 //Investigar significado de req y res.
 //Investigar los status en res.status
-function signUp( req, res){
+function signUp( req , res ){
     const user = new User();
 
     const { name, lastname, email, password, repeatPassword } = req.body;
@@ -55,6 +55,11 @@ function signUp( req, res){
     }
 }
 
+function signIn( req, res ){
+    console.log("Login Correcto");
+}
+
 module.exports = {
-    signUp
+    signUp,
+    signIn
 };
