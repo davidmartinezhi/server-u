@@ -8,7 +8,8 @@ Archivos y Carpetas
 
   * Routers: - Exporta rutas para que el dom pueda hacer peticiones al var.
 
-  * Services: - Contiene los tokens
+  * Services: - Contiene los tokens, crea los tokens
+    necesitamos enlaces token y refresh token
     -jwt.js
 
   * Index.js: - Primer ejecutable
