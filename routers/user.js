@@ -7,5 +7,8 @@ const api = express.Router();
 //Cuando se haga un post a esa ruta, se ejecuta la función
 api.post("/sign-up", UserController.signUp);    //Se va a ejecutar esa función
 
+//creando otra ruta
+api.post("/sign-in", UserController.signIn);
+
 module.exports = api;
 
