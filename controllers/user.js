@@ -56,7 +56,23 @@ function signUp( req , res ){
 }
 
 function signIn( req, res ){
-    console.log("Login Correcto");
+    const params = req.body; //Recibe los objetos que fueron mandados
+    const email = params.email.toLowerCase();   //Recibo el mail y lo convierto a minusculas
+    const password = params.password;
+
+    //Busco un email que sea igual al que me acaban de mandar
+    User.findOne({email}, (err, userStored) => { 
+        //Si tenemos un error
+        if(err){
+            res.status(500).send({message:"Error del Servidor."});  //avisamos que fue error del servidor
+        }
+
+        //Si no existe el usuario
+        if(!userStored){
+            res.status(404).send({message: `El email ${email}, no esta registrado.`}); //aviso que el email no se encuentra en la base de datos
+        }
+
+    });
 }
 
 module.exports = {
