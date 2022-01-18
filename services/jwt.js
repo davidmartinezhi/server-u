@@ -36,6 +36,8 @@ function createRefreshToken(user){
 }
 
 //jwt.io, pagina web para checar la codificación o decodificación
+//Por eso no se pone la contraseña dentro de payload la contraseña
+//Solo al copiar token del navegador del usuario o que su computadora este infectada, es que se podría leakear el token
 function decodedToken(token){
     return jwt.decode(token, SECRET_KEY, true);
 }
