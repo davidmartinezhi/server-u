@@ -35,6 +35,7 @@ function createRefreshToken(user){
     return jwt.encode(payload, SECRET_KEY);
 }
 
+//jwt.io, pagina web para checar la codificación o decodificación
 function decodedToken(token){
     return jwt.decode(token, SECRET_KEY, true);
 }
