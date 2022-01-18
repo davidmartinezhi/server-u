@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt-nodejs"); //Para encriptar constraseñas
-//const jwt = require(""); //Para Tokens
+const jwt = require("../services/jwt"); //Para Tokens
 const User = require("../models/user"); //Modelo del usuario
 
 //Endpoint que crea/guarda nuevo usuario, siempre y cuando, no esten registrados
@@ -70,6 +70,31 @@ function signIn( req, res ){
         //Si no existe el usuario
         if(!userStored){
             res.status(404).send({message: `El email ${email}, no esta registrado.`}); //aviso que el email no se encuentra en la base de datos
+        } else{
+            //userStored es el objeto usuario con todos los datos
+            //Si el usuario existe, me devuelve el objeto con su información
+
+            //Comparo contraseña encryptada con la no encryptada
+            bcrypt.compare(password, userStored.password, (err, check) => {
+                if(err){
+                    res.status(500).send({message: "Error del Servidor" });
+                } else{
+                    //Checo que el usuario esté activo
+                    if(!userStored.active){
+                        res
+                        .status(200)
+                        .send({code: 200, message: "El usuario no se ha activo." });    //Lo que va dentro del send, es lo que le mando al front-end
+                    }
+                    else{
+                        //Si el usuario es correcto
+                        //Mando el access token y el refresh token
+                        res.status(200).send({
+                            accessToken = jwt.createAccessToken(userStored),
+                            refreshToken = jwt.refreshToken(userStored)
+                        });
+                    }
+                }
+            });
         }
 
     });
