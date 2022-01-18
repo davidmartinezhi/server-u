@@ -42,7 +42,5 @@ Dependencias
   * Yarn start - para iniciar el servidor con nodemon index.js
 
 
-  Recordatorio:
-    -Checar porque nodemon esta fallando
-      update: era por el texto en el index mongoose.set("useFindAndModify", false);
-      Lo quite y jalo correctamente todo
+
+ 
