@@ -75,9 +75,16 @@ function signIn( req, res ){
 
                 //Comparo contraseña encryptada con la no encryptada
                 bcrypt.compare(password, userStored.password, (err, check) => {
+                    //Checa si el servidor no regresa un error
                     if(err){
                         res.status(500).send({message: "Error del Servidor" });
-                    } else{
+                    } 
+                    //Checa si la contraseña NO es correcta
+                    else if(check === false){
+                        res.status(404).send({message: "La contraseña es incorrecta."});
+                    }
+                    //La contraseña SI es correcta
+                    else{
                         //Checo que el usuario esté activo
                         if(!userStored.active){
                             res
