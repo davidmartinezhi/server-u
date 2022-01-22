@@ -14,3 +14,11 @@ function willExpireToken( token ) {
     return false;
 }
 
+//refreshAccessToken
+function refreshAccessToken(req, res){
+    console.log("Estamos refrecando el access token.");
+}
+
+module.exports = {
+    refreshAccessToken
+}
