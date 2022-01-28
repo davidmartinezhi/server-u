@@ -2,8 +2,7 @@ const bcrypt = require("bcrypt-nodejs"); //Para encriptar constraseñas
 const jwt = require("../services/jwt"); //Para Tokens
 const User = require("../models/user"); //Modelo del usuario
 
-//Endpoint que crea/guarda nuevo usuario, siempre y cuando, no esten registrados
-//Investigar significado de req y res.
+//Crea/guarda nuevo usuario, siempre y cuando, no esten registrados
 //Investigar los status en res.status
 function signUp( req , res ){
     const user = new User();
@@ -55,6 +54,7 @@ function signUp( req , res ){
     }
 }
 
+//Verificar cuenta y dar acceso
 function signIn( req, res ){
     const params = req.body; //Recibe los objetos que fueron mandados
     const email = params.email.toLowerCase();   //Recibo el mail y lo convierto a minusculas
@@ -106,7 +106,13 @@ function signIn( req, res ){
     });
 }
 
+//Exporta usuarios al front-end
+function getUsers( req, res){
+    console.log("get Users");
+}
+
 module.exports = {
     signUp,
-    signIn
+    signIn,
+    getUsers
 };

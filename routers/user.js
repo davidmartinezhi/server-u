@@ -10,5 +10,8 @@ api.post("/sign-up", UserController.signUp);    //Se va a ejecutar esa función
 //creando otra ruta
 api.post("/sign-in", UserController.signIn);
 
+//Creando endpoint de tipo GET
+api.get("/users", UserController.getUsers);
+
 module.exports = api;
 
