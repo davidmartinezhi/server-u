@@ -108,7 +108,18 @@ function signIn( req, res ){
 
 //Exporta usuarios al front-end
 function getUsers( req, res){
-    console.log("get Users");
+
+    //Nos devuelve los usuarios
+    User.find().then(users => {
+        if(!users) {
+            //Mando mensaje de que no fue encontrado nungún usuario
+            res.status(404).send({message: "No se ha encontrado ningún usuario."});
+        }
+        else{
+            //Regreso los usuarios
+            res.status(200).send({users});
+        }
+    });
 }
 
 module.exports = {
