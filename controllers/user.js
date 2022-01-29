@@ -4,7 +4,7 @@ const User = require("../models/user"); //Modelo del usuario
 
 //Crea/guarda nuevo usuario, siempre y cuando, no esten registrados
 //Investigar los status en res.status
-function signUp( req , res ){
+function signUp( req, res ){
     const user = new User();
 
     const { name, lastname, email, password, repeatPassword } = req.body;
@@ -122,8 +122,26 @@ function getUsers( req, res){
     });
 }
 
+//Regresa usuarios activos
+function getUsersActive( req, res){
+    const query = req.query;
+    
+    //Nos devuelve los usuarios
+    User.find({ active: query.active }).then(users => {
+        if(!users) {
+            //Mando mensaje de que no fue encontrado nungún usuario
+            res.status(404).send({message: "No se ha encontrado ningún usuario."});
+        }
+        else{
+            //Regreso los usuarios
+            res.status(200).send({users});
+        }
+    });
+}
+
 module.exports = {
     signUp,
     signIn,
-    getUsers
+    getUsers,
+    getUsersActive
 };
