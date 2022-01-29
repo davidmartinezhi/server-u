@@ -13,6 +13,7 @@ api.post("/sign-in", UserController.signIn);
 
 //Creando endpoint de tipo GET
 api.get("/users", [md_auth.ensureAuth], UserController.getUsers);
+api.get("/users-active", [md_auth.ensureAuth], UserController.getUsersActive);
 
 module.exports = api;
 
