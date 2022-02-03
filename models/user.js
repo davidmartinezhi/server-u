@@ -11,6 +11,7 @@ const UserSchema = Schema({
   password: String,
   role: String,
   active: Boolean,
+  avatar: String //Aquí se guardara el url del avatar del usuario
 });
 
 module.exports = mongoose.model("User", UserSchema);
