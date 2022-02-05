@@ -107,7 +107,7 @@ function signIn( req, res ){
 }
 
 //Exporta usuarios al front-end
-function getUsers( req, res){
+function getUsers( req, res ){
 
     //Nos devuelve los usuarios
     User.find().then(users => {
@@ -123,7 +123,7 @@ function getUsers( req, res){
 }
 
 //Regresa usuarios activos
-function getUsersActive( req, res){
+function getUsersActive( req, res ){
     const query = req.query;
     
     //Nos devuelve los usuarios
@@ -139,9 +139,22 @@ function getUsersActive( req, res){
     });
 }
 
+//Sube el avatar del usuario al servidos
+function uploadAvatar( req, res ){
+    //En params recibimos el ID del usuario
+    const { params } = req.params;
+
+    console.log("Upload avatar");
+}
+
+//Obtener avatar del servidor
+
+//Actualiza datos del usuario
+
 module.exports = {
     signUp,
     signIn,
     getUsers,
-    getUsersActive
+    getUsersActive,
+    uploadAvatar
 };
