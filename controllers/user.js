@@ -142,9 +142,29 @@ function getUsersActive( req, res ){
 //Sube el avatar del usuario al servidos
 function uploadAvatar( req, res ){
     //En params recibimos el ID del usuario
-    const { params } = req.params;
+    const { params } = req;
 
-    console.log("Upload avatar");
+
+    
+    User.findById({ _id: params.id}, (err, userData) => {
+        
+        if(err){    //Error del servidor
+            res.status(500).send({message: "Error del servidor."});
+        }
+        else{
+            if(!userData) { //Error al encontrar el ID en usuarios
+                res.status(404).send({ message: "No se ha encontrado ningún usuario."});
+            }
+            else{   //ID encontrado
+
+                let user = userData;
+
+                console.log(userData);
+            }
+
+        }
+    });
+    
 }
 
 //Obtener avatar del servidor
