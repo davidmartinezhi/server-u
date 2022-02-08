@@ -223,6 +223,10 @@ function uploadAvatar( req, res ){
 }
 
 //Obtener avatar del servidor
+function getAvatar( req, res){
+    console.log("Get Avatar.");
+}
+
 
 //Actualiza datos del usuario
 
@@ -231,5 +235,6 @@ module.exports = {
     signIn,
     getUsers,
     getUsersActive,
-    uploadAvatar
+    uploadAvatar,
+    getAvatar
 };

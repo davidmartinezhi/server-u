@@ -3,7 +3,7 @@ const UserController = require("../controllers/user");
 const multipart = require("connect-multiparty");
 
 
-const md_auth = require("../middlewares/authenticated");
+const md_auth = require("../middlewares/authenticated"); //Se usa cuando tiene que estar logeado el usuario para hacer un request
 const md_upload_avatar = multipart({ uploadDir: "./uploads/avatar" });
 
 const api = express.Router();
@@ -26,6 +26,9 @@ api.put(
     [md_auth.ensureAuth, md_upload_avatar],
     UserController.uploadAvatar
   );
+
+//Ruta para obtener avatar
+api.get("/get-avatar/:avatarName", UserController.getAvatar);
 
 module.exports = api;
 
