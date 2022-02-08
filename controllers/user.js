@@ -174,32 +174,49 @@ function uploadAvatar( req, res ){
                     let fileExt = extSplit[1]; //.jpg .png . jpeg
 
                     //Checamos que la extensión es correcta
-                    if(fileExt !== "png" && fileExt !== "jpg" && fileExt !== "jpeg"){
-                        res.status(400).send({message: "La extensión de la imagen no es valida. (Extensiones validas: jpg, jpeg, png)"});
-                    } else{
+                    if (
+                      fileExt !== "png" &&
+                      fileExt !== "jpg" &&
+                      fileExt !== "jpeg"
+                    ) {
+                      res
+                        .status(400)
+                        .send({
+                          message:
+                            "La extensión de la imagen no es valida. (Extensiones validas: jpg, jpeg, png)",
+                        });
+                    } else {
+                      //La variable user ahora tiene el nombre de la imagen
+                      user.avatar = fileName;
 
-                        //La variable user ahora tiene el nombre de la imagen
-                        user.avatar = fileName;
-
-                        User.findByIdAndUpdate({ _id : params.id }, user, (err, userResult) => {
-                            //Actualiza los datos del id, con los datos que tenga user
-                            if(err){
-                                res.status(500).send({message: "Error del servidor."});
-                            }else { 
-                                if(!userResult){    //Comprobamos otra vez que el id existe
-                                    res.status(404).send({message: "No se ha encontrado el usuario."});
-                                }
-                                else{   //Mando el rsultado
-                                    //El front va a recibir el nombre del avatar como respuesta
-                                    res.status(200).send({avatarName : fileName});
-                                }
+                      User.findByIdAndUpdate(
+                        { _id: params.id },
+                        user,
+                        (err, userResult) => {
+                          //Actualiza los datos del id, con los datos que tenga user
+                          if (err) {
+                            res
+                              .status(500)
+                              .send({ message: "Error del servidor." });
+                          } else {
+                            if (!userResult) {
+                              //Comprobamos otra vez que el id existe
+                              res
+                                .status(404)
+                                .send({
+                                  message: "No se ha encontrado el usuario.",
+                                });
+                            } else {
+                              //Mando el resultado
+                              //El front va a recibir el nombre del avatar como respuesta
+                              res.status(200).send({ avatarName: fileName });
                             }
-                        });  
+                          }
+                        }
+                      );
                     }
-
                 }
             }
-
         }
     });
     
