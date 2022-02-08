@@ -237,7 +237,10 @@ function getAvatar( req, res){
 }
 
 
-//Actualiza datos del usuario
+//Actualiza datos del usuario en la base de datos
+function updateUser( req, res){
+    console.log("Update user..");
+}
 
 module.exports = {
     signUp,
