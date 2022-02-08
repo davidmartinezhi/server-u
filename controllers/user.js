@@ -175,7 +175,19 @@ function uploadAvatar( req, res ){
                     if(fileExt !== "png" && fileExt !== "jpg" && fileExt !== "jpeg"){
                         res.status(400).send({message: "La extensión de la imagen no es valida. (Extensiones validas: jpg, jpeg, png)"});
                     } else{
-                        
+                        user.avatar = fileName;
+                        User.findByIdAndUpdate({ _id : params.id }, user, (err, userResult) => {
+                            if(err){
+                                res.status(500).send({message: "Error del servidor."});
+                            }else {
+                                if(!userResult){
+                                    res.status(404).send({message: "No se ha encontrado el usuario."});
+                                }
+                                else{   //Mando el rsultado
+                                    res.status(200).send({user: userResult});
+                                }
+                            }
+                        });  //Actualiza los datos del id, los datos que tenga user
                     }
 
                 }
