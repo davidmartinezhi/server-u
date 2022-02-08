@@ -158,9 +158,11 @@ function uploadAvatar( req, res ){
                 res.status(404).send({ message: "No se ha encontrado ningún usuario."});
             }
             else{   //ID encontrado
+                //Confirmamos que el usuario existe
 
                 let user = userData;
 
+                //Recuperamos la imagen que le hemos enviado
                 if(req.files){  //Si llega un file
                     let filePath = req.files.avatar.path;   //Agarra la url de la imagen
                     let fileSplit = filePath.split("/");  //Lo convierte en un vector separado en "/"
@@ -171,23 +173,28 @@ function uploadAvatar( req, res ){
 
                     let fileExt = extSplit[1]; //.jpg .png . jpeg
 
-                    //Si no es el tipo de dato que aceptamos
+                    //Checamos que la extensión es correcta
                     if(fileExt !== "png" && fileExt !== "jpg" && fileExt !== "jpeg"){
                         res.status(400).send({message: "La extensión de la imagen no es valida. (Extensiones validas: jpg, jpeg, png)"});
                     } else{
+
+                        //La variable user ahora tiene el nombre de la imagen
                         user.avatar = fileName;
+
                         User.findByIdAndUpdate({ _id : params.id }, user, (err, userResult) => {
+                            //Actualiza los datos del id, con los datos que tenga user
                             if(err){
                                 res.status(500).send({message: "Error del servidor."});
-                            }else {
-                                if(!userResult){
+                            }else { 
+                                if(!userResult){    //Comprobamos otra vez que el id existe
                                     res.status(404).send({message: "No se ha encontrado el usuario."});
                                 }
                                 else{   //Mando el rsultado
-                                    res.status(200).send({user: userResult});
+                                    //El front va a recibir el nombre del avatar como respuesta
+                                    res.status(200).send({avatarName : fileName});
                                 }
                             }
-                        });  //Actualiza los datos del id, los datos que tenga user
+                        });  
                     }
 
                 }
