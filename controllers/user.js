@@ -248,5 +248,6 @@ module.exports = {
     getUsers,
     getUsersActive,
     uploadAvatar,
-    getAvatar
+    getAvatar,
+    updateUser
 };

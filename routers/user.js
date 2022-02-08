@@ -30,5 +30,8 @@ api.put(
 //Ruta para obtener avatar
 api.get("/get-avatar/:avatarName", UserController.getAvatar);
 
+//Ruta para actualizaer usuario en la base de datos
+api.put("/update-user/:id", [md_auth.ensureAuth], UserController.updateUser);
+
 module.exports = api;
 
