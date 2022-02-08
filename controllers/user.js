@@ -161,7 +161,24 @@ function uploadAvatar( req, res ){
 
                 let user = userData;
 
-                console.log(userData);
+                if(req.files){  //Si llega un file
+                    let filePath = req.files.avatar.path;   //Agarra la url de la imagen
+                    let fileSplit = filePath.split("/");  //Lo convierte en un vector separado en "/"
+                    let fileName = fileSplit[2];    //Agarramos el nombre de la imagen
+
+                    //Separamos el nombre de la imagen con su tipo de archivo en el punto
+                    let extSplit = fileName.split("."); 
+
+                    let fileExt = extSplit[1]; //.jpg .png . jpeg
+
+                    //Si no es el tipo de dato que aceptamos
+                    if(fileExt !== "png" && fileExt !== "jpg" && fileExt !== "jpeg"){
+                        res.status(400).send({message: "La extensión de la imagen no es valida. (Extensiones validas: jpg, jpeg, png)"});
+                    } else{
+                        
+                    }
+
+                }
             }
 
         }
