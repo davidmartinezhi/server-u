@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const bcrypt = require("bcrypt-nodejs"); //Para encriptar constraseñas
 const jwt = require("../services/jwt"); //Para Tokens
 const User = require("../models/user"); //Modelo del usuario
