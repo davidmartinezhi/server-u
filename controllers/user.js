@@ -239,7 +239,26 @@ function getAvatar( req, res){
 
 //Actualiza datos del usuario en la base de datos
 function updateUser( req, res){
-    console.log("Update user..");
+    
+    //Mandamos los datos del usuario mediante el body
+    const userData = req.body;
+    const params = req.params;
+
+    User.findByIdAndUpdate( {_id: params.id}, userData, (err, userUpdate) => {
+        //Actualiza los datos que vienen en userUpdate
+        //Cuando llega al id, si encuentra la key la actualiza, sino la crra
+        if(err){
+            res.status(500).send({message: "Error del servidor."});
+        }
+        else{
+            if(!userUpdate){
+                res.status(404).send({message: "No se ha encontrado ningún usuario."});
+            }
+            else{
+                res.status(200).send({message: "Usuario actualizado correctamente."});
+            }
+        }
+    });
 }
 
 module.exports = {
