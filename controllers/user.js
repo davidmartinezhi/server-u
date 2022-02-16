@@ -279,7 +279,33 @@ async function updateUser( req, res){
 
 //Activa y Desactiva usuarios
 function activateUser( req, res) {
-    console.log("Activando usuario...");
+    //Por los parametros me llega el id del usuario, siento que se pone el id en la parte client
+    const { id } = req.params;
+    const { active } = req.body;
+
+    //Por tener el mismo nombre que en la base de datos, se escribe {active} si fuera otro valor
+    //Se escribe como {active: variable del destructuring req.body}
+    User.findByIdAndUpdate(id, {active}, (err, userStored) => {
+        if(err){
+            res.status(500).send({message: "Error del servidor."});
+        }
+        else{
+
+            if(!userStored){    //User no encontrado
+                res.status(404).send({message: "No se ha encontrado el usuario."});
+            }
+            else {  //Usuario encontrado
+
+                if(active === true){    //Se quiere activar el usuario
+                    res.status(200).send({message: "Usuario activado correctamente."});
+                }
+                else{
+                    res.status(200).send({message: "Usuario desactivado correctamente."});
+                }
+            }
+        }
+    });
+    
 }
 
 module.exports = {
