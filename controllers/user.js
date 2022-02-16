@@ -238,12 +238,27 @@ function getAvatar( req, res){
 
 
 //Actualiza datos del usuario en la base de datos
-function updateUser( req, res){
+async function updateUser( req, res){
     
     //Mandamos los datos del usuario mediante el body
     var userData = req.body;
     userData.email = req.body.email.toLowerCase();  //Convierto nuevo email a lowercase
     const params = req.params;
+
+    //Si nos llega la contraseña del usuario
+    if(userData.password){
+        //Esperamos a que se termine de encriptar la password antes de proseguir con el resto del codigo
+        //También por eso uso el async antes de la función
+        await bcrypt.hash(userData.password, null, null, (err, hash) => {
+
+            if(err){
+                res.status(500).send({message: "Error al encriptar la constraseña."});
+            }
+            else{
+                userData.password = hash; //Actualizamos la password con la constraseña encriptada
+            }
+        });
+    }
 
     User.findByIdAndUpdate( {_id: params.id}, userData, (err, userUpdate) => {
         //Actualiza los datos que vienen en userUpdate
