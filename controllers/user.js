@@ -241,7 +241,8 @@ function getAvatar( req, res){
 function updateUser( req, res){
     
     //Mandamos los datos del usuario mediante el body
-    const userData = req.body;
+    var userData = req.body;
+    userData.email = req.body.email.toLowerCase();  //Convierto nuevo email a lowercase
     const params = req.params;
 
     User.findByIdAndUpdate( {_id: params.id}, userData, (err, userUpdate) => {
