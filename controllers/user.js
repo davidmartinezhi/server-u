@@ -277,6 +277,11 @@ async function updateUser( req, res){
     });
 }
 
+//Activa y Desactiva usuarios
+function activateUser( req, res) {
+    console.log("Activando usuario...");
+}
+
 module.exports = {
     signUp,
     signIn,
@@ -284,5 +289,6 @@ module.exports = {
     getUsersActive,
     uploadAvatar,
     getAvatar,
-    updateUser
+    updateUser,
+    activateUser
 };

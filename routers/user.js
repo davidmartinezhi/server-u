@@ -33,5 +33,8 @@ api.get("/get-avatar/:avatarName", UserController.getAvatar);
 //Ruta para actualizaer usuario en la base de datos
 api.put("/update-user/:id", [md_auth.ensureAuth], UserController.updateUser);
 
+//Ruta para activar y desactivar usuarios
+api.put("/activate-user/:id", [md_auth.ensureAuth], UserController.activateUser);
+
 module.exports = api;
 
