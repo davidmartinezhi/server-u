@@ -285,6 +285,7 @@ function activateUser( req, res) {
 
     //Por tener el mismo nombre que en la base de datos, se escribe {active} si fuera otro valor
     //Se escribe como {active: variable del destructuring req.body}
+    //Diciendo ahí mismo, este id, cambiale este valor por este otro y la función checa como tratar si fue exitoso o no el proceso para avisar al front-end
     User.findByIdAndUpdate(id, {active}, (err, userStored) => {
         if(err){
             res.status(500).send({message: "Error del servidor."});
