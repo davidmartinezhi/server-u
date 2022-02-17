@@ -309,6 +309,11 @@ function activateUser( req, res) {
     
 }
 
+//Elimina al usuario de la base de datos
+function deleteUser( req, res ){
+    console.log("Delete User...");
+}
+
 module.exports = {
     signUp,
     signIn,
@@ -317,5 +322,6 @@ module.exports = {
     uploadAvatar,
     getAvatar,
     updateUser,
-    activateUser
+    activateUser,
+    deleteUser
 };

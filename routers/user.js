@@ -36,5 +36,8 @@ api.put("/update-user/:id", [md_auth.ensureAuth], UserController.updateUser);
 //Ruta para activar y desactivar usuarios
 api.put("/activate-user/:id", [md_auth.ensureAuth], UserController.activateUser);
 
+//Ruta para eliminar usuario
+api.delete("/delete-user/:id", [md_auth.ensureAuth], UserController.deleteUser);
+
 module.exports = api;
 
