@@ -307,6 +307,12 @@ function deleteUser(req, res) {
   });
 }
 
+//Función para usuarios con rol de adminiatrador
+function signUpAdmin( req, res) {
+  console.log("signUpAdmin...");
+}
+
+
 module.exports = {
   signUp,
   signIn,
@@ -317,4 +323,5 @@ module.exports = {
   updateUser,
   activateUser,
   deleteUser,
+  signUpAdmin
 };

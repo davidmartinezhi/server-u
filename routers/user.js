@@ -39,5 +39,8 @@ api.put("/activate-user/:id", [md_auth.ensureAuth], UserController.activateUser)
 //Ruta para eliminar usuario
 api.delete("/delete-user/:id", [md_auth.ensureAuth], UserController.deleteUser);
 
+//sign up Admin
+api.post("/sign-up-admin", [md_auth.ensureAuth], UserController.signUpAdmin);
+
 module.exports = api;
 
