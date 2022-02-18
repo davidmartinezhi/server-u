@@ -311,7 +311,24 @@ function activateUser( req, res) {
 
 //Elimina al usuario de la base de datos
 function deleteUser( req, res ){
-    console.log("Delete User...");
+    
+    const { id } = req.params;
+
+    User.findByIdAndRemove(id, (err, userDeleted) => {
+
+        if(err){
+            res.status(500).send({message: "Error del servidor."});
+        }
+        else {
+            if(!userDeleted){
+                res.status(404).send({message: "Usuario no encontrado."});
+            }
+            else{
+                res.status(200).send({message: "Usuario Eliminado Correctamente."})
+            }
+        }
+    })
+
 }
 
 module.exports = {
