@@ -309,7 +309,46 @@ function deleteUser(req, res) {
 
 //Función para usuarios con rol de adminiatrador
 function signUpAdmin( req, res) {
-  console.log("signUpAdmin...");
+  
+  //En el request nos llega la info del usuario para llenar el objeto vacío
+  const user = new User();
+  const { name, lastname, email, role, password } = req.body;
+
+  user.name = name;
+  user.lastname = lastname;
+  user.email = email.toLowerCase(); //Siempre se guarda en minusculas el correo
+  user.role = role;
+  user.active = true;
+
+  if(!password){
+    res.status(500).send({message: "La contraseña es obligatoria."});
+  }else{
+    bcrypt.hash(password, null, null, (err, hash) => {  //Hash es la contraseña ya encriptada
+
+      if(err){
+        res.status(500).send({message: "Error al encriptar la contraseña."});
+      }
+      else{
+        user.password = hash;
+
+        //user.save() es una función de mongoose para guardar el usuario en la base de datos
+        //regresa error o userStores(Los datos del usuario que se ha guardado)
+        user.save( (err, userStored) => {
+          if(err){
+            res.status(500).send({message: "El usuario ya existe."});
+          }
+          else{
+            if(!userStored){
+              res.status(500).send({message: "Error al crear el nuevo usuario."});
+            }
+            else{
+              res.status(200).send({user: userStored});
+            }
+          }
+        });
+      }
+    });
+  }
 }
 
 
