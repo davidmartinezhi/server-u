@@ -42,5 +42,5 @@ Dependencias
   * Yarn start - para iniciar el servidor con nodemon index.js
 
 
-
+Checar que la contraseña se guarde en la base de datos y encriptada. Al crear un usuario nuevo
  
