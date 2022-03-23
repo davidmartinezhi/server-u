@@ -32,12 +32,21 @@ function addMenu(req, res) {
 function getMenus(req, res) {
     //Exporta menus al front-end
 
-    Menu.find().then((menus) => {
-        if(!menus){
-            res.status(404).send({message: "No se ha encontrado ningún menú"});
+    //Busca Menus
+    Menu.find()
+    .sort({order: "asc"})   //Lo orderna 
+    .exec((err, menusStored) => {   //Ejecuta el result de menus
+        if(err){    //Si hay algún error en el servidor
+            res.status(500).send({message: "Error del servidor"});  //Marca error y manda el mensaje
         }
-        else{
-            res.status(200).send({menus});
+        else{   //Si no existe error por parte del servidor
+            if(!menusStored){   //Si el menu regresado está vacío
+                //Marcamos el error y regresamos el motivo del error
+                res.status(404).send({message: "No se ha encontrado ningún elemento en el menú"});
+            }
+            else{   //Si no hay error el servidor y si hay menus en la base de datos
+                res.status(200).send({menusStored});    //Los regresamos
+            }
         }
     });
 }
