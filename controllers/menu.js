@@ -29,6 +29,20 @@ function addMenu(req, res) {
   });
 }
 
+function getMenus(req, res) {
+    //Exporta menus al front-end
+
+    Menu.find().then((menus) => {
+        if(!menus){
+            res.status(404).send({message: "No se ha encontrado ningún menú"});
+        }
+        else{
+            res.status(200).send({menus});
+        }
+    });
+}
+
 module.exports = {
   addMenu,
+  getMenus
 };
