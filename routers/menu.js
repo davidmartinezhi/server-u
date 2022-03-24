@@ -10,7 +10,7 @@ const api = express.Router();
 api.post("/add-menu", [md_auth.ensureAuth], MenuController.addMenu);
 
 //Despliega menú desde la base de datos al front end
-api.get("/get-menus", [md_auth.ensureAuth], MenuController.getMenus);
+api.get("/get-menus", MenuController.getMenus);
 
 
 //Todas las rutas se exportan automaticamente, de esta manera
