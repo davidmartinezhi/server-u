@@ -62,9 +62,9 @@ function updateMenu(req, res){
     }
     else{
       if(!menuUpdate){
-        res.status(404).send({message: "No se ha encontrado ningún mené."});
+        res.status(404).send({message: "No se ha encontrado ningún menú."});
       }else{
-        res.status(200).send({message: "Menú actualizado correctamente."})
+        res.status(200).send({message: "Menú actualizado correctamente."});
       }
     }
   });
