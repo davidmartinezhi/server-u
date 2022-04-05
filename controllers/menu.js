@@ -51,7 +51,27 @@ function getMenus(req, res) {
     });
 }
 
+function updateMenu(req, res){
+  let menuData = req.body;
+  const params = req.params;
+
+
+  Menu.findByIdAndUpdate(params.id, menuData, (err, menuUpdate) => {
+    if(err){
+      res.status(500).send({message: "Error del servidor,"});
+    }
+    else{
+      if(!menuUpdate){
+        res.status(404).send({message: "No se ha encontrado ningún mené."});
+      }else{
+        res.status(200).send({message: "Menú actualizado correctamente."})
+      }
+    }
+  });
+}
+
 module.exports = {
   addMenu,
-  getMenus
+  getMenus,
+  updateMenu
 };
