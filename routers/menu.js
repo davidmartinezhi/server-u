@@ -15,6 +15,8 @@ api.get("/get-menus", MenuController.getMenus);
 //Actualiza menú
 api.put("/update-menu/:id", [md_auth.ensureAuth], MenuController.updateMenu);
 
+//Actualiza si el menú está activo o no
+api.put("/activate-menu/:id", [md_auth.ensureAuth], MenuController.activateMenu);
 
 //Todas las rutas se exportan automaticamente, de esta manera
 module.exports = api;
