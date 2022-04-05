@@ -51,7 +51,7 @@ function getMenus(req, res) {
     });
 }
 
-function updateMenu(req, res){
+function updateMenu(req, res) {
   let menuData = req.body;
   const params = req.params;
 
@@ -70,8 +70,34 @@ function updateMenu(req, res){
   });
 }
 
+//Se puede usar updateMenu, pero haré una nueva para poder practicar
+function activateMenu(req, res) {
+  const {id} = req.params; //Id del menú, nos dice que menú debemos de actualizar
+  const {active} = req.body;  //El body dice si esta activo o no, es un boolean
+
+  Menu.findByIdAndUpdate(id, {active}, (err, menuUpdated) => {
+    if(err){
+      res.status(500).send({message: "Error del servidor."}); 
+    }
+    else{
+      if(!menuUpdated){
+        res.status(404).send({message: "No se ha encontrado el menú,"});
+      }
+      else{
+        if(active == true){
+          res.status(200).send({message: "Menú Activado Correctamente."});
+        }
+        else{
+          res.status(200).send({message: "Menú Desactivado Correctamente."});
+        }
+      }
+    }
+  });
+}
+
 module.exports = {
   addMenu,
   getMenus,
-  updateMenu
+  updateMenu,
+  activateMenu
 };
