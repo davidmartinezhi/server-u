@@ -18,5 +18,8 @@ api.put("/update-menu/:id", [md_auth.ensureAuth], MenuController.updateMenu);
 //Actualiza si el menú está activo o no
 api.put("/activate-menu/:id", [md_auth.ensureAuth], MenuController.activateMenu);
 
+//Eliminar menú
+api.delete("/delete-menu/:id", [md_auth.ensureAuth], MenuController.deleteMenu);
+
 //Todas las rutas se exportan automaticamente, de esta manera
 module.exports = api;
