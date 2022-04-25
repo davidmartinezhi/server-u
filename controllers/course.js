@@ -10,7 +10,7 @@ function addCourse( req, res ){
 
     course.save((err, courseStored) => {
         if(err){
-            res.status(400).send({code: 400, message: "Error del servidor."});
+            res.status(400).send({code: 400, message: "El curso que estas creando ya existe."});
         }
         else{
             if(!courseStored){
