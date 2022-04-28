@@ -1,5 +1,6 @@
 const Course = require("../models/course");
 
+//agregar cursos
 function addCourse(req, res) {
   const body = req.body;
   const course = new Course(body);
@@ -24,7 +25,8 @@ function addCourse(req, res) {
   });
 }
 
-function getCourses( req, res) {
+//recuperar cursos
+function getCourses(req, res) {
 
     Course.find()
         .sort({order: "asc"})
@@ -44,7 +46,14 @@ function getCourses( req, res) {
     
 }
 
+//eliminar cursos
+function deleteCourse(req, res){
+    console.log("Delete course...");
+}
+
+
 module.exports = {
   addCourse,
-  getCourses
+  getCourses,
+  deleteCourse
 };
