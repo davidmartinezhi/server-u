@@ -64,13 +64,30 @@ function deleteCourse(req, res) {
 }
 
 //actualizar cursos
-function updateCourse( req, res){
-    console.log("Update course..");
+function updateCourse(req, res) {
+  const courseData = req.body;
+  const id = req.params.id;
+
+  Course.findByIdAndUpdate(id, courseData, (err, courseUpdated) => {
+    if (err) {
+      res.status(500).send({ code: 500, message: "Error del servidor." });
+    } else {
+      if (!courseUpdated) {
+        res
+          .status(404)
+          .send({ code: 404, message: "No se ha encontrado el curso." });
+      } else {
+        res
+          .status(200)
+          .send({ code: 200, message: "Curso actualizado correctamente" });
+      }
+    }
+  });
 }
 
 module.exports = {
   addCourse,
   getCourses,
   deleteCourse,
-  updateCourse
+  updateCourse,
 };
