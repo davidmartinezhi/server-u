@@ -48,7 +48,21 @@ function getCourses(req, res) {
 
 //eliminar cursos
 function deleteCourse(req, res){
-    console.log("Delete course...");
+    const {id} = req.params;
+    
+    Course.findByIdAndRemove(id, (err, courseDeleted) => {
+        if(err){
+            res.status(500).send({code: 500, message: "Error del servidor."});
+        }
+        else{
+            if(!courseDeleted){
+                res.status(404).send({code: 404, message: "Curso no encontrado."});
+            }
+            else{
+                res.status(200).send({code: 200, message: "Curso eliminado con éxito."});
+            }
+        }
+    })
 }
 
 
