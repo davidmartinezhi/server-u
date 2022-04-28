@@ -25,7 +25,23 @@ function addCourse(req, res) {
 }
 
 function getCourses( req, res) {
-    console.log("Get Courses...");
+
+    Course.find()
+        .sort({order: "asc"})
+        .exec(( err, coursesStored) => {
+            if(err){
+                res.status(500).send({code:500, message: "Error del servidor."});
+            }
+            else{
+                if(!coursesStored){
+                    res.status(404).send({code: 404, message: "No se ha encontrado ningún curso."});
+                }
+                else{
+                    res.status(200).send({code: 200, courses: coursesStored});
+                }
+            }
+        })
+    
 }
 
 module.exports = {
