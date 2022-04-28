@@ -5,5 +5,6 @@ const md_auth = require("../middlewares/authenticated");
 const api = express.Router();
 
 api.post("/add-course", [md_auth.ensureAuth], CourseController.addCourse);
+api.get("/get-courses", CourseController.getCourses);
 
 module.exports = api;
