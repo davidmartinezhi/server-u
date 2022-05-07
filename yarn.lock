@@ -245,6 +245,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bluebird@npm:3.0.5":
+  version: 3.0.5
+  resolution: "bluebird@npm:3.0.5"
+  checksum: 0d67657fc4b2f5ada5c9db86221d1a36a5e7824d002685f5f9b2c8348898382aba287a91f8f35abd3df8408ca183727945f532bca58860e933031c6c02ae158c
+  languageName: node
+  linkType: hard
+
 "body-parser@npm:1.19.0, body-parser@npm:^1.19.0":
   version: 1.19.0
   resolution: "body-parser@npm:1.19.0"
@@ -558,6 +565,7 @@ __metadata:
     jwt-simple: ^0.5.6
     moment: ^2.29.1
     mongoose: ^6.0.8
+    mongoose-paginate: ^5.0.3
     nodemon: ^2.0.13
   languageName: unknown
   linkType: soft
@@ -1587,6 +1595,15 @@ fsevents@~2.3.2:
     saslprep:
       optional: true
   checksum: c169560c52c49b666dd3bc1c5b14908cbdd6dfde0865ce01d0db8c65aa4a46e795e4b1d5659318af528010a516c461c888428408e66e470808b3e69d13c200fe
+  languageName: node
+  linkType: hard
+
+"mongoose-paginate@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "mongoose-paginate@npm:5.0.3"
+  dependencies:
+    bluebird: 3.0.5
+  checksum: d5fddd24ccd1b2bfa299d624b55196de3efd107b39d86d1029988aa7ce9071c1c5fe3660d8a8035aed9c7a32356dfb78631a07aea42debca133a1fbb4a6c8b5e
   languageName: node
   linkType: hard
 

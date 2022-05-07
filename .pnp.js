@@ -45,6 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jwt-simple", "npm:0.5.6"],
             ["moment", "npm:2.29.1"],
             ["mongoose", "npm:6.0.8"],
+            ["mongoose-paginate", "npm:5.0.3"],
             ["nodemon", "npm:2.0.13"]
           ],
           "linkType": "SOFT",
@@ -326,6 +327,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/binary-extensions-npm-2.2.0-180c33fec7-0f5f5685f3.zip/node_modules/binary-extensions/",
           "packageDependencies": [
             ["binary-extensions", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["bluebird", [
+        ["npm:3.0.5", {
+          "packageLocation": "./.yarn/cache/bluebird-npm-3.0.5-9e7eb7845a-0d67657fc4.zip/node_modules/bluebird/",
+          "packageDependencies": [
+            ["bluebird", "npm:3.0.5"]
           ],
           "linkType": "HARD",
         }]
@@ -686,6 +696,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jwt-simple", "npm:0.5.6"],
             ["moment", "npm:2.29.1"],
             ["mongoose", "npm:6.0.8"],
+            ["mongoose-paginate", "npm:5.0.3"],
             ["nodemon", "npm:2.0.13"]
           ],
           "linkType": "SOFT",
@@ -1899,6 +1910,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["regexp-clone", "npm:1.0.0"],
             ["sift", "npm:13.5.2"],
             ["sliced", "npm:1.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mongoose-paginate", [
+        ["npm:5.0.3", {
+          "packageLocation": "./.yarn/cache/mongoose-paginate-npm-5.0.3-e332282249-d5fddd24cc.zip/node_modules/mongoose-paginate/",
+          "packageDependencies": [
+            ["mongoose-paginate", "npm:5.0.3"],
+            ["bluebird", "npm:3.0.5"]
           ],
           "linkType": "HARD",
         }]
