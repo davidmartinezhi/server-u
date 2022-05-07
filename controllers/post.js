@@ -19,6 +19,11 @@ function addPost(req, res) {
     });
 }
 
+function getPost(req, res) {
+    console.log("getpostt...");
+}
+
 module.exports = {
-    addPost
+    addPost,
+    getPost
 };
