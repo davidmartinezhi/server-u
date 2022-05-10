@@ -45,7 +45,13 @@ function getPost(req, res) {
   });
 }
 
+function updatePost(req, res){
+  console.log("Update post...");
+}
+
+
 module.exports = {
   addPost,
   getPost,
+  updatePost
 };
