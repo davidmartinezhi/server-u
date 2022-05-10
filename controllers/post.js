@@ -84,7 +84,21 @@ function deletePost( req, res){
 }
 
 function getPost( req, res ) {
-  console.log("Get post...");
+  
+  const url= req.params.url;
+
+  Post.findOne({url}, (err, postStored) => {
+    if(err){
+      res.status(500).send({code:500, message: "Error del servidor."});
+    }
+    else{
+      if(!postStored){
+        res.status(404).send({code:404, message: "No se ha encontrado ningún post"});
+      }else{
+        res.status(200).send({code: 200, post: postStored});
+      }
+    }
+  })
 }
 
 
