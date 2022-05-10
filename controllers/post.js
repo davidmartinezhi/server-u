@@ -45,67 +45,67 @@ function getPosts(req, res) {
   });
 }
 
-function updatePost(req, res){
+function updatePost(req, res) {
   const postData = req.body;
   const id = req.params.id;
 
   Post.findByIdAndUpdate(id, postData, (err, postUpdated) => {
-    if(err){
-      res.status(500).send({code: 500, message: "Error del servidor."});
-    }else{
-      if(!postUpdated){
-        res.status(404).send({code: 404, message: "No se ha encontrado el post."});
-      }
-      else{
-        res.status(200).send({code: 200, message: "Post actualizado correctamente."});
+    if (err) {
+      res.status(500).send({ code: 500, message: "Error del servidor." });
+    } else {
+      if (!postUpdated) {
+        res
+          .status(404)
+          .send({ code: 404, message: "No se ha encontrado el post." });
+      } else {
+        res
+          .status(200)
+          .send({ code: 200, message: "Post actualizado correctamente." });
       }
     }
-  })
+  });
 }
 
-function deletePost( req, res){
-
+function deletePost(req, res) {
   const id = req.params.id;
 
   Post.findByIdAndRemove(id, (err, postDeleted) => {
-    if(err){
-      res.status(500).send({code: 500, message: "Error del servidor."});
-    }
-    else{
-      if(!postDeleted){
-        res.status(404).send({code: 404, message: "Post no encontrado."});
+    if (err) {
+      res.status(500).send({ code: 500, message: "Error del servidor." });
+    } else {
+      if (!postDeleted) {
+        res.status(404).send({ code: 404, message: "Post no encontrado." });
+      } else {
+        res
+          .status(200)
+          .send({ code: 200, message: "Post eliminado correctamente." });
       }
-      else{
-        res.status(200).send({code: 200, message: "Post eliminado correctamente."});
-      }
     }
-  })
-
+  });
 }
 
-function getPost( req, res ) {
-  
-  const url= req.params.url;
+function getPost(req, res) {
+  const url = req.params.url;
 
-  Post.findOne({url}, (err, postStored) => {
-    if(err){
-      res.status(500).send({code:500, message: "Error del servidor."});
-    }
-    else{
-      if(!postStored){
-        res.status(404).send({code:404, message: "No se ha encontrado ningún post"});
-      }else{
-        res.status(200).send({code: 200, post: postStored});
+  Post.findOne({ url }, (err, postStored) => {
+    if (err) {
+      res.status(500).send({ code: 500, message: "Error del servidor." });
+    } else {
+      if (!postStored) {
+        res
+          .status(404)
+          .send({ code: 404, message: "No se ha encontrado ningún post" });
+      } else {
+        res.status(200).send({ code: 200, post: postStored });
       }
     }
-  })
+  });
 }
-
 
 module.exports = {
   addPost,
   getPosts,
   updatePost,
   deletePost,
-  getPost
+  getPost,
 };
