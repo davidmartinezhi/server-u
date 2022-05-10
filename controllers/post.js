@@ -63,9 +63,14 @@ function updatePost(req, res){
   })
 }
 
+function deletePost( req, res){
+  console.log("Delete post...");
+}
+
 
 module.exports = {
   addPost,
   getPost,
-  updatePost
+  updatePost,
+  deletePost
 };
