@@ -64,7 +64,23 @@ function updatePost(req, res){
 }
 
 function deletePost( req, res){
-  console.log("Delete post...");
+
+  const id = req.params.id;
+
+  Post.findByIdAndRemove(id, (err, postDeleted) => {
+    if(err){
+      res.status(500).send({code: 500, message: "Error del servidor."});
+    }
+    else{
+      if(!postDeleted){
+        res.status(404).send({code: 404, message: "Post no encontrado."});
+      }
+      else{
+        res.status(200).send({code: 200, message: "Post eliminado correctamente."});
+      }
+    }
+  })
+
 }
 
 
