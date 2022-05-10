@@ -21,7 +21,7 @@ function addPost(req, res) {
   });
 }
 
-function getPost(req, res) {
+function getPosts(req, res) {
   const { page = 1, limit = 10 } = req.query; //Esto es vuando ponemos en el lin ?page=1&limit=10...
 
   const options = {
@@ -83,10 +83,15 @@ function deletePost( req, res){
 
 }
 
+function getPost( req, res ) {
+  console.log("Get post...");
+}
+
 
 module.exports = {
   addPost,
-  getPost,
+  getPosts,
   updatePost,
-  deletePost
+  deletePost,
+  getPost
 };
