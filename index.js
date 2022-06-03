@@ -7,7 +7,7 @@ const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
 //Conexión a base de datos
 mongoose.connect(
-  `mongodb://${IP_SERVER}:${PORT_DB}/davidgerardomartinez`,
+  `mongodb+srv://davidmartinezhi:mern1234@webpersonalcurso.fideg.mongodb.net/?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
     if (err) {
